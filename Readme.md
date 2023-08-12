@@ -39,7 +39,7 @@ W powyższym kodzie osadziliśmy `HStack` w poziomym `ScrollView`, aby stworzyć
 
 To wydaje się dość proste, prawda? Jeśli uruchomisz ten kod w podglądzie, powinien wyświetlić widok poziomego przewijania. Możesz przesuwać ekran, aby przewijać wszystkie widoki kart.
 
-
+![image-20230812140440122](image-20230812140440122.png)
 
 Czyli, czy uważasz, że zakończyliśmy tworzenie karuzeli? Jeszcze nie. Są jeszcze kilka większych problemów:
 
@@ -75,7 +75,7 @@ var body: some View {
 
 W powyższym kodzie zaczynamy od rozmieszczenia wszystkich widoków kart wewnątrz `HStack`. Domyślnie poziomy stos próbuje jak najlepiej dopasować wszystkie widoki kart do dostępnego miejsca na ekranie.
 
-
+![image-20230812213816904](image-20230812213816904.png)
 
 
 
@@ -101,7 +101,7 @@ Parametr `outerView` dostarcza nam szerokość i wysokość ekranu, natomiast pa
 
 W powyższym kodzie do widoku karty dołączamy modyfikator `.frame` i ustawiamy jego szerokość na szerokość ekranu (`outerView.size.width`). To zapewnia, że każdy widok karty zajmuje całą szerokość ekranu. Dla wysokości widoku karty ustawiamy 500 punktów, aby był nieco mniejszy. Po wprowadzeniu zmian, powinieneś zobaczyć widok karty z obrazem "Londynu".
 
-
+![image-20230812213925042](image-20230812213925042.png)
 
 Wyświetlanie widoku karty "Londynu" wynika z jego pozycji w środku tablicy, co powoduje, że domyślnie jest on wyświetlany w podglądzie.
 
