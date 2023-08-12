@@ -107,10 +107,6 @@ Wyświetlanie widoku karty "Londynu" wynika z jego pozycji w środku tablicy, co
 
 W trybie "Selectable", podgląd powinien pokazywać siódmy element (w tym przypadku widok "Londynu"), ponieważ znajduje się on w środku tablicy i ze względu na równą szerokość każdego widoku karty, zajmuje on całą szerokość ekranu.
 
-Dziękuję za wyjaśnienie, i doceniam Twoje zrozumienie. Jeśli masz dalsze pytania lub potrzebujesz pomocy z dowolnym fragmentem implementacji, śmiało pytaj!
-
-
-
 
 
 #### Zmiana wyrównania
