@@ -284,6 +284,10 @@ VStack(alignment: .leading) {
 
 Kod powyżej jest sam w sobie samowyjaśniający, ale chciałbym podkreślić dwie linie kodu. Oba modyfikatory `.opacity` i `.offset` są opcjonalne. Celem modyfikatora `.opacity` jest ukrycie tytułu, gdy karta jest dotknięta. Zmiana w pionowym przesunięciu doda miły akcent do doświadczenia użytkownika.
 
+![image-20230812215747798](image-20230812215747798.png)
+
+
+
 #### Podsumowanie
 
 Zbudowałeś niestandardowy widok przewijania z obsługą stronowania i nauczyłeś się tworzyć widok szczegółowy z animowanym przejściem. Ta technika nie jest ograniczona tylko do karuzel obrazków. W rzeczywistości możesz dostosować ten kod, aby stworzyć zestaw ekranów wprowadzenia.

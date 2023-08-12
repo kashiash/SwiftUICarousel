@@ -10,6 +10,20 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            VStack(alignment: .leading) {
+                Text("Discover")
+                    .font(.system(.largeTitle, design: .rounded))
+                    .fontWeight(.black)
+
+                Text("Explore your next destination")
+                    .font(.system(.headline, design: .rounded))
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .padding(.top, 25)
+            .padding(.leading, 20)
+            .opacity(self.isCardTapped ? 0.1 : 1.0)
+            .offset(y: self.isCardTapped ? -100 : 0)
+            
             GeometryReader { outerView in
                 HStack(spacing: 0) {
                     ForEach(sampleTrips.indices, id: \.self) { index in
