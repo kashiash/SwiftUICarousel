@@ -123,6 +123,8 @@ Jak więc możemy wyświetlić pierwszy element tablicy zamiast środkowego (si�
 
 Domyślne wyrównanie jest ustawione na `.center`. To dlatego na ekranie jest wyświetlany siódmy element widoku poziomego. Gdy zmienisz wyrównanie na `.leading`, powinieneś zobaczyć pierwszy element.
 
+![image-20230812214425668](image-20230812214425668.png)
+
 Jeśli chcesz zrozumieć, jak wyrównanie wpływa na poziomy stos, możesz zmienić jego wartość na `.center` lub `.trailing`, aby zobaczyć efekt. Poniższa figura pokazuje, jak wygląda stos widoku w zależności od różnych ustawień wyrównania.
 
 Czy zauważyłeś lukę między każdym z widoków kart? To również związane z domyślnym ustawieniem HStack. Aby wyeliminować odstępy, możesz zaktualizować HStack i ustawić jego odstępy na zero, tak jak tutaj:

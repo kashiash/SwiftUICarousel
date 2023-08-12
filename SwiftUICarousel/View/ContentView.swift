@@ -16,8 +16,9 @@ struct ContentView: View {
                     .frame(width: outerView.size.width, height: 500)
                 }
             }
-            .frame(width: outerView.size.width, height: outerView.size.height)
+            .frame(width: outerView.size.width, height: outerView.size.height, alignment: .leading)
         }
+        
     }
 }
 
