@@ -41,9 +41,9 @@ To wydaje się dość proste, prawda? Jeśli uruchomisz ten kod w podglądzie, p
 
 ![image-20230812140440122](image-20230812140440122.png)
 
-Czyli, czy uważasz, że zakończyliśmy tworzenie karuzeli? Jeszcze nie. Są jeszcze kilka większych problemów:
+Czyli, czy uważasz, że zakończyliśmy tworzenie karuzeli? Jeszcze nie. Mamy jeszcze kilka większych problemów:
 
-1. Obecna implementacja nie obsługuje stronowania. Innymi słowy, można przesuwać ekran, aby ciągle przewijać treść. Widok przewijania może zatrzymać się w dowolnym miejscu. Na przykład, spójrz na rysunek 4. Przewijanie zatrzymuje się między dwoma widokami kart. To nie jest zachowanie, które chcemy. Oczekujemy, że przewijanie zatrzyma się na granicach stron treści widoku.
+1. Obecna implementacja nie obsługuje stronicowania. Innymi słowy, można przesuwać ekran, aby ciągle przewijać treść. Widok przewijania może zatrzymać się w dowolnym miejscu. Na przykład, spójrz na rysunek powyżej. Przewijanie zatrzymuje się między dwoma widokami kart. To nie jest zachowanie, które nas satysfakcjonuje. Oczekujemy, że przewijanie zatrzyma się na granicach stron treści widoku.
 
 2. Kiedy kartę zostanie naciśnięta, musimy znaleźć jej indeks i wyświetlić jej szczegóły w osobnym widoku. Problem polega na tym, że z obecną implementacją nie jest łatwo ustalić, którą kartę naciśnął użytkownik.
 
