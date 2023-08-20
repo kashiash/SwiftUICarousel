@@ -41,7 +41,10 @@ struct ContentViewNew: View {
 
                 }
             }
-        }.scrollTargetBehavior(.paging)
+            .scrollTargetLayout()
+        }
+        //.scrollTargetBehavior(.paging)
+        .scrollTargetBehavior(.viewAligned)
     }
 }
 
