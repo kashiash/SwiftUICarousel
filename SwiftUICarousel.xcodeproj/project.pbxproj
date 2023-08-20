@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76AE605E2A92243F004D7908 /* ContentViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE605D2A92243F004D7908 /* ContentViewNew.swift */; };
 		F43AF48828ACD66200214BDA /* SwiftUICarouselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43AF48728ACD66200214BDA /* SwiftUICarouselApp.swift */; };
 		F43AF48A28ACD66200214BDA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43AF48928ACD66200214BDA /* ContentView.swift */; };
 		F43AF48C28ACD66200214BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43AF48B28ACD66200214BDA /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76AE605D2A92243F004D7908 /* ContentViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewNew.swift; sourceTree = "<group>"; };
 		F43AF48428ACD66200214BDA /* SwiftUICarousel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICarousel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43AF48728ACD66200214BDA /* SwiftUICarouselApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICarouselApp.swift; sourceTree = "<group>"; };
 		F43AF48928ACD66200214BDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				F43AF48928ACD66200214BDA /* ContentView.swift */,
 				F43AF49928ACD69C00214BDA /* TripCardView.swift */,
+				76AE605D2A92243F004D7908 /* ContentViewNew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				F43AF49828ACD67C00214BDA /* Trip.swift in Sources */,
 				F43AF49A28ACD69C00214BDA /* TripCardView.swift in Sources */,
 				F43AF48A28ACD66200214BDA /* ContentView.swift in Sources */,
+				76AE605E2A92243F004D7908 /* ContentViewNew.swift in Sources */,
 				F43AF48828ACD66200214BDA /* SwiftUICarouselApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +303,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,6 +333,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

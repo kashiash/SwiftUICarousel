@@ -6,7 +6,7 @@ import SwiftUI
 struct SwiftUICarouselApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentViewNew()
         }
     }
 }
