@@ -41,7 +41,16 @@ struct ContentViewNew: View {
                                     .opacity(phase.isIdentity ? 1.0 : 0.8)
                                     .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
                             }
-                        Text("City: \(trip.capitalized)")
+                            .overlay(
+                                Text(trip.capitalized)
+                                    .font(.system(.headline, design: .rounded))
+                                    .fontWeight(.heavy)
+                                    .padding(5)
+                                    .background(Color.white)
+                                    .padding([.bottom, .leading])
+                                    .padding( .leading)
+                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                            )
                     }
 
                 }
