@@ -24,41 +24,31 @@ struct ContentViewNew: View {
                                 "sydney",
                                 "hongkong" ]
 
-    var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: 0) {
-                ForEach(sampleTrips, id: \.self) { trip in
-                    VStack{
-                        Image(trip)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(height: 450)
-                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                            .padding(.horizontal, 20)
-                            .containerRelativeFrame(.horizontal)
-                            .scrollTransition(.animated, axis: .horizontal) { content, phase in
-                                content
-                                    .opacity(phase.isIdentity ? 1.0 : 0.8)
-                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
-                            }
-                            .overlay(
-                                Text(trip.capitalized)
-                                    .font(.system(.headline, design: .rounded))
-                                    .fontWeight(.heavy)
-                                    .padding(5)
-                                    .background(Color.white)
-                                    .padding([.bottom, .leading])
-                                    .padding( .leading)
-                                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                            )
-                    }
+    @State private var searchtext: String = ""
 
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack (spacing: 15){
+                HStack(spacing: 12) {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image(systemName: "line.3.horizontal")
+                            .font(.title)
+                            .foregroundStyle(.blue)
+                    })
+                    HStack(spacing: 12) {
+                        Image(systemName: "magnifyinglass")
+                            .foregroundStyle(.gray)
+
+                        TextField("Search",text: $searchtext)
+                    }
                 }
+                .padding(.horizontal, 15)
+                .padding(.vertical, 10)
+                .background(.ultraThinMaterial,in: .capsule)
             }
-            .scrollTargetLayout()
+            .padding(15)
         }
-        //.scrollTargetBehavior(.paging)
-        .scrollTargetBehavior(.viewAligned)
+        .scrollIndicators(.hidden)
     }
 }
 
