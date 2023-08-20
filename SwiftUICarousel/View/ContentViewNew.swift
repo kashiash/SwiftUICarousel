@@ -36,6 +36,11 @@ struct ContentViewNew: View {
                             .clipShape(RoundedRectangle(cornerRadius: 25.0))
                             .padding(.horizontal, 20)
                             .containerRelativeFrame(.horizontal)
+                            .scrollTransition(.animated, axis: .horizontal) { content, phase in
+                                content
+                                    .opacity(phase.isIdentity ? 1.0 : 0.8)
+                                    .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
+                            }
                         Text("City: \(trip.capitalized)")
                     }
 
