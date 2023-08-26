@@ -293,3 +293,116 @@ Kod powyżej jest sam w sobie samowyjaśniający, ale chciałbym podkreślić dw
 Zbudowałeś niestandardowy widok przewijania z obsługą stronowania i nauczyłeś się tworzyć widok szczegółowy z animowanym przejściem. Ta technika nie jest ograniczona tylko do karuzel obrazków. W rzeczywistości możesz dostosować ten kod, aby stworzyć zestaw ekranów wprowadzenia.
 
 Najnowsza wersja SwiftUI zawiera teraz wbudowane widoki specjalnie zaprojektowane do tworzenia interfejsów użytkownika w formie karuzel. Na przykład widoki przewijania i widoki kart zostały udoskonalone, aby obsługiwać stronowanie. Jeśli Twoja aplikacja ma działać wyłącznie w najnowszej wersji iOS, możesz wykorzystać te wbudowane widoki zamiast rozwijać karuzelę obrazków od podstaw.
+
+
+
+
+
+### Wersja OS17
+
+Jednak jeśli Twoja aplikacja jest skierowana wyłącznie na najnowszą wersję iOS, nie ma potrzeby rozpoczynania implementacji karuzeli obrazów od podstaw. Dzięki najnowszym udoskonaleniom w SwiftUI, teraz możesz łatwo stworzyć taką samą płynną interfejsową karuzelę z znacznie mniej kodu. Wraz z pojawieniem się iOS 17, wbudowany widok ScrollView wprowadza intuicyjną funkcję paginacji, umożliwiając programistom budowanie karuzel obrazów i podobnych układów interfejsu użytkownika za pomocą kilku linii kodu.
+
+W tym samouczku pokażemy Ci, jak stworzyć podobny interfejs karuzeli za pomocą nowej wersji ScrollView. Zostaniesz zaskoczony, jak niewiele kodu jest potrzebne do osiągnięcia tego efektu.
+
+Zaczynajmy.
+
+Tworzenie interfejsu karuzeli z wykorzystaniem ScrollView i LazyHStack.
+
+Przyjmując, że utworzyłeś projekt w SwiftUI i zaimportowałeś zestaw obrazów do katalogu zasobów, możesz stworzyć prosty interfejs karuzeli, używając poziomego ScrollView oraz LazyHStack. Oto przykładowy fragment kodu:
+
+```swift
+struct ContentView: View {
+ 
+    private let sampleTrips = [ "paris",
+                                "florence",
+                                "amsterdam",
+                                "ghent",
+                                "santorini",
+                                "budapest",
+                                "london",
+                                "cuba",
+                                "osaka",
+                                "kyoto",
+                                "seoul",
+                                "sydney",
+                                "hongkong" ]
+ 
+    var body: some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 0) {
+                ForEach(sampleTrips, id: \.self) { trip in
+ 
+                    Image(trip)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 450)
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                        .padding(.horizontal, 20)
+ 
+                }
+            }           
+        }      
+    }
+}
+```
+
+Implementacja jest bardzo prosta. Wykorzystujemy widok LazyHStack, aby poziomo ułożyć zestaw obrazów, oraz poziomy widok przewijania (ScrollView) do zarządzania operacją przewijania. W oknie podglądu powinieneś być w stanie przewijać w lewo (lub w prawo), aby przeglądać zdjęcia.
+
+
+
+### Używanie ramki okna  względem kontenera
+
+Możesz zauważyć, że każdy obraz nie rozciąga się, aby zajmować całą szerokość ekranu. Dlatego, zanim wdrożymy funkcję przewijania stron, zajmijmy się najpierw tym problemem.
+
+W iOS 17, SwiftUI wprowadza nowy modyfikator o nazwie containerRelativeFrame. Przyłączając ten modyfikator do widoku Image, obraz automatycznie zajmuje całą dostępną przestrzeń. Opcjonalnie, możesz określić oś dla tego rozszerzenia.
+
+Na przykład, jeśli dołączysz modyfikator containerRelativeFrame do widoku Image, obraz zostanie rozszerzony, aby zająć szerokość ekranu.
+
+
+
+
+
+W nadchodzącej wersji iOS 17, włączenie kontroli przewijania dla widoku ScrollView staje się niesamowicie proste dzięki zaledwie jednej linii kodu. Nowy modyfikator scrollTargetBehavior pozwala programistom bezproblemowo ustawiać zachowanie przewijania widoku ScrollView. Aby włączyć stronnicowanie (paging), wszystko, co musisz zrobić, to dodać modyfikator scrollTargetBehavior do ScrollView i ustawić jego wartość na .paging:
+
+```swift
+ScrollView(.horizontal) {
+    // Treść widoku ScrollView
+}
+.scrollTargetBehavior(.paging)
+```
+
+Alternatywnie, możesz ustawić wartość na .viewAligned i dodać modyfikator scrollTargetLayout do widoku stosu (stack view):
+
+```swift
+ScrollView(.horizontal) {
+    LazyHStack(spacing: 0) {
+        // Treść widoku ScrollView
+    }
+    .scrollTargetLayout()
+}
+.scrollTargetBehavior(.viewAligned)
+```
+
+Oba podejścia tworzą podobną animację przewijania stron. Możesz to przetestować na ekranie podglądu.
+
+
+
+### Animacja
+
+Aby poprawić doświadczenie użytkownika, dołóżmy przyjemną animację podczas przejścia między obrazami. W naszym poprzednim samouczku wprowadziliśmy modyfikator scrollTransition, który pozwala śledzić przejścia widoku i stosować efekty animacji. Wykorzystamy ten modyfikator do animowania przejścia między obrazami i stworzenia bardziej atrakcyjnego doświadczenia użytkownika.
+
+Wstaw poniższy kod i umieść go poniżej modyfikatora containerRelativeFrame:
+
+```swift
+.scrollTransition(.animated, axis: .horizontal) { content, phase in
+    content
+        .opacity(phase.isIdentity ? 1.0 : 0.8)
+        .scaleEffect(phase.isIdentity ? 1.0 : 0.8)
+}
+```
+
+Modyfikator scrollTransition pozwala nam monitorować przejścia między widokami obrazów. Gdy widok obrazu nie jest w fazie tożsamościowej (identity), zmniejszamy jego rozmiar i zmniejszamy przezroczystość. Po zakończeniu wejścia obrazu na ekran, przywracamy zarówno przezroczystość, jak i rozmiar do ich pierwotnego stanu. To daje efekt płynnego i eleganckiego animowanego przejścia.
+
+
+
+W porównaniu do pierwszej części samouczka, nowy sposób jest znacznie krótszy. Zaktualizowana wersja ScrollView, wyposażona w obsługę stronnicowania i przejść przewijania, upraszcza tworzenie interfejsów karuzeli. Jednak ważne jest, aby zauważyć, że ta nowa funkcja jest dostępna tylko w iOS 17 lub nowszych wersjach. Jeśli Twoja aplikacja musi obsługiwać starsze wersje iOS, możesz użyć pierwszej  metody samouczka i używania podstawowych widoków SwiftUI do tworzenia karuzeli obrazów.
